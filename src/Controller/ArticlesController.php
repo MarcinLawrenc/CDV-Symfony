@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class BlogController extends AbstractController
+class ArticlesController extends AbstractController
 {
     public function __construct(
         private PsyGonczeRepository $psyGonczeRepository
@@ -17,11 +17,13 @@ class BlogController extends AbstractController
     {
     }
 
-    #[Route("/blog", 'blog-index')]  // This is a route annotation
-    public function index(): Response
+
+    #[Route('/articles', 'main_page')]  // This is a route annotation
+    public function mainPage(): Response
     {
         $articles = $this -> psyGonczeRepository -> findAll();
-        dump($articles);
-        return new Response ('To bedzie strona glowna');
+
+        return $this -> render ('articles.html.twig',['articles'=>$articles]);
     }
 }
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Artykuly</title>
+
+    </head>
+    <body>
+        <h1>Artykuly</h1>
+{#            {{ dump(articles) }}#}
+        {%  for article in articles %}
+            <div>
+                <span><b>ID artykulu: </b> {{ article.id }}</span></br>
+                <span><b>Nazwa artykulu: </b> {{ article.Name }}</span></br>
+                <span><b>Zawartosc: </b> {{ article.Description }}</span></br>
+            </div></br>
+        {% endfor %}
+    </body>
+</html>
+
